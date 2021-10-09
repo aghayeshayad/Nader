@@ -1,0 +1,13 @@
+{
+    "name": "Heter",
+    "alias": "heter",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Heter\\Providers\\HeterServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

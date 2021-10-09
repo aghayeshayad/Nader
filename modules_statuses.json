@@ -1,0 +1,13 @@
+{
+    "Blog": true,
+    "ContactUs": true,
+    "AboutUs": true,
+    "Faq": true,
+    "Heter": true,
+    "Category": true,
+    "Product": true,
+    "Banner": true,
+    "Slider": true,
+    "Fact": true,
+    "User": true
+}
