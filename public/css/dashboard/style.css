@@ -19146,7 +19146,7 @@ readers do not read off random characters that represent icons */
   src: url(/fonts/Flaticon.eot?ff4db9d699282a5e5f6ca4df550d4439?#iefix) format("embedded-opentype"),
        url(/fonts/Flaticon.woff?a53eae6b65c8492060d77a4b55fb79f7) format("woff"),
        url(/fonts/Flaticon.ttf?00eacf86b4318d9958a8179dea589b04) format("truetype"),
-       url(/fonts/Flaticon.svg?9f5e0e46d5b72f93431e7f5de81e7704#Flaticon) format("svg");
+       url(/fonts/Flaticon.svg?9b97d4a03f52096e0278a9fe29e338ae#Flaticon) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -19154,7 +19154,7 @@ readers do not read off random characters that represent icons */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "Flaticon";
-    src: url(/fonts/Flaticon.svg?9f5e0e46d5b72f93431e7f5de81e7704#Flaticon) format("svg");
+    src: url(/fonts/Flaticon.svg?9b97d4a03f52096e0278a9fe29e338ae#Flaticon) format("svg");
   }
 }
 
@@ -19422,7 +19422,7 @@ readers do not read off random characters that represent icons */
   src: url(/fonts/Flaticon2.eot?5971908741f540117ba1d68f2304dd85?#iefix) format("embedded-opentype"),
        url(/fonts/Flaticon2.woff?76f38df3aea1a621f8bf1ae415a0311d) format("woff"),
        url(/fonts/Flaticon2.ttf?41914745046d0478cead813ef1a0c614) format("truetype"),
-       url(/fonts/Flaticon2.svg?d9945f2a96ca4c240c3282509c451a07#Flaticon2) format("svg");
+       url(/fonts/Flaticon2.svg?79370877b4f6af461592daf107da82bb#Flaticon2) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -19430,7 +19430,7 @@ readers do not read off random characters that represent icons */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "Flaticon2";
-    src: url(/fonts/Flaticon2.svg?d9945f2a96ca4c240c3282509c451a07#Flaticon2) format("svg");
+    src: url(/fonts/Flaticon2.svg?79370877b4f6af461592daf107da82bb#Flaticon2) format("svg");
   }
 }
 
