@@ -1,13 +1,11 @@
 {
-    "Blog": true,
-    "ContactUs": true,
     "AboutUs": true,
-    "Faq": true,
-    "Heter": true,
-    "Category": true,
-    "Product": true,
     "Banner": true,
-    "Slider": true,
-    "Fact": true,
-    "User": true
+    "ContactUs": true,
+    "Contents": true,
+    "Faqs": true,
+    "Settings": true,
+    "Sliders": true,
+    "UrlLink": true,
+    "Users": true
 }
