@@ -1,5 +1,8 @@
 <?php
 
+use App\Providers\ComponentsServiceProvider;
+use App\Providers\FacadesServiceProvider;
+
 return [
 
     /*
@@ -174,6 +177,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        FacadesServiceProvider::class,
+        ComponentsServiceProvider::class,
+        \App\Providers\ViewServiceProvider::class,
 
     ],
 

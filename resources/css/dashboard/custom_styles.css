@@ -1,0 +1,71 @@
+body {
+    font-family: IRANSans;
+}
+
+.trash-img {
+    width: 26px;
+    position: relative;
+    top: 50px;
+    right: 43px;
+    display: none;
+}
+.related_images :hover {
+    cursor: pointer;
+}
+
+.custom-file-label {
+    position: relative;
+    top: -40px;
+    width: 100%;
+    height: 41px;
+}
+
+.input-group-prepend {
+    height: 38px;
+}
+
+.thumbnail .custom-file-label span{
+    position: absolute;
+    background-color: lightyellow;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    visibility: hidden;
+    color: black;
+    text-decoration: none;
+}
+
+.thumbnail .custom-file-label span img{
+    border-width: 0;
+    max-width: 400px;
+    max-height: 200px;
+    padding: 2px;
+}
+
+.thumbnail:hover .custom-file-label span{
+    visibility: visible;
+    top: 65%;
+    left: 50%;
+    z-index: 50;
+}
+
+.kt-wizard-v2 .kt-wizard-v2__wrapper .kt-form {
+    width: 100%!important;
+}
+
+div#map {
+    width: 100% !important;
+    height: 320px !important;
+}
+
+.kt-wizard-v2__nav-label {
+    padding-right: 10px;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: left;
+}
+
+.toast-message {
+    margin-right: 30px;
+}
