@@ -5,17 +5,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'role:' . config('roles.admin')])->group(function () {
     Route::get('/', 'DashboardController@index')->name('dashboard.index');
 
-    Route::namespace('Categories')->group(function () {
-        Route::resource('categories', 'CategoryController');
+    // Route::namespace('Categories')->group(function () {
+    //     Route::resource('categories', 'CategoryController');
 
-        Route::name('subcategories.')->group(function() {
-            Route::get('subcategories/{category}', 'SubcategoryController@show')->name('show');
-            Route::get('subcategories/create/{category}', 'SubcategoryController@create')->name('create');
-            Route::post('subcategories/{id}', 'SubcategoryController@store')->name('store');
-            Route::get('subcategories/{category}/edit', 'SubcategoryController@edit')->name('edit');
-            Route::put('subcategories/{category}', 'SubcategoryController@update')->name('update');
-        });
-    });
+    //     Route::name('subcategories.')->group(function() {
+    //         Route::get('subcategories/{category}', 'SubcategoryController@show')->name('show');
+    //         Route::get('subcategories/create/{category}', 'SubcategoryController@create')->name('create');
+    //         Route::post('subcategories/{id}', 'SubcategoryController@store')->name('store');
+    //         Route::get('subcategories/{category}/edit', 'SubcategoryController@edit')->name('edit');
+    //         Route::put('subcategories/{category}', 'SubcategoryController@update')->name('update');
+    //     });
+    // });
 
     Route::namespace('Evocatives')->group(function() {
         Route::resource('evocatives', 'EvocativeController');
