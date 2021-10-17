@@ -41,10 +41,16 @@ class CategoriesController extends Controller
      */
     public function store(CategoryStoreRequest $request, Category $category)
     {
+        $request->merge([
+            'parent_id' => $request->parent_id ? $request->parent_id : null,
+        ]);
+
         $this->fillRequest($request, $category);
 
-        return redirect()->to(route('admin.categories.index'))
-            ->with('success', 'دسته بندی با موفقیت افزوده شد.');
+        return redirect()->to(
+            $request->parent_id ? route('admin.subcategories.show', $request->parent_id) :
+                route('admin.categories.index')
+        )->with('success', 'دسته بندی با موفقیت افزوده شد.');
     }
 
     /**
@@ -79,8 +85,10 @@ class CategoriesController extends Controller
     {
         $this->fillRequest($request, $category);
 
-        return redirect()->to(route('admin.categories.index'))
-            ->with('success', 'دسته بندی با موفقیت ویرایش شد.');
+        return redirect()->to(
+            $category->parent_id ? route('admin.subcategories.show', $category->parent_id) :
+                route('admin.categories.index')
+        )->with('success', 'دسته بندی با موفقیت ویرایش شد.');
     }
 
     /**
