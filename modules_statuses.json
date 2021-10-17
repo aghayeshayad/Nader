@@ -8,5 +8,6 @@
     "Sliders": true,
     "UrlLink": true,
     "Users": true,
-    "Products": true
+    "Products": true,
+    "Categories": true
 }

@@ -67,7 +67,7 @@ let tables = function (table_id, columns, columns_def = null) {
             cancelButtonText: 'خیر',
         }).then(function (result) {
             if (result.value) {
-                ajaxCall(e, {id: $(e.target).attr('data-id')});
+                ajaxCall(e);
                 swal.fire(
                     'موفقیت آمیز!',
                     'بازگردانی موفقیت آمیز بود.',
