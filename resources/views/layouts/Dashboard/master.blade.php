@@ -254,7 +254,6 @@ kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside
     <!--begin:: Vendor Plugins -->
     <script type="text/javascript" src="{{ asset('js/dashboard/app.js') }}"></script>
 
-    @stack('scripts')
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
@@ -263,6 +262,7 @@ kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-aside
         });
 
     </script>
+    @stack('scripts')
 </body>
 
 <!-- end::Body -->

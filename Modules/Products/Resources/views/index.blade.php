@@ -33,9 +33,14 @@
                         <tr>
                             <th style="width: 20px">ردیف</th>
                             <th style="width: 140px">عنوان</th>
-                            <th style="width: 97px">تاریخ انتشار</th>
-                            <th style="width: 46px">تعداد بازدید</th>
-                            <th style="width: 180px">عملیات</th>
+                            <th style="width: 97px">قیمت پایه</th>
+                            <th style="width: 140px">قیمت(واحد)</th>
+                            <th style="width: 70px">دسته بندی</th>
+                            <th style="width: 70px">تخفیف</th>
+                            <th style="width: 46px">تعداد</th>
+                            <th style="width: 46px">وضعیت</th>
+                            <th style="width: 46px">نوع</th>
+                            <th style="width: 130px">عملیات</th>
                         </tr>
                     </thead>
                 </table>
