@@ -9,5 +9,6 @@
     "UrlLink": true,
     "Users": true,
     "Products": true,
-    "Categories": true
+    "Categories": true,
+    "Tags": true
 }
