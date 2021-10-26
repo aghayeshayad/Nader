@@ -28,14 +28,12 @@
             <div class="kt-portlet__body">
                 <!--begin: Datatable -->
                 <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1"
-                    data-link="#">
+                    data-link="{{ route('admin.products.ajax.list') }}">
                     <thead>
                         <tr>
                             <th style="width: 20px">ردیف</th>
                             <th style="width: 140px">عنوان</th>
-                            <th style="width: 97px">قیمت پایه</th>
-                            <th style="width: 140px">قیمت(واحد)</th>
-                            <th style="width: 70px">دسته بندی</th>
+                            <th style="width: 97px">قیمت</th>
                             <th style="width: 70px">تخفیف</th>
                             <th style="width: 46px">تعداد</th>
                             <th style="width: 46px">وضعیت</th>
@@ -52,7 +50,7 @@
 @endsection
 @push('scripts')
     {{-- Start datatable scripts --}}
-    <script type="text/javascript" src="{{ asset('js/Dashboard/DataTable/DataTable.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/dashboard/dataTable/DataTable.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             let columns = [{
@@ -62,10 +60,19 @@
                     data: 'title'
                 },
                 {
-                    data: 'published_at'
+                    data: 'price'
                 },
                 {
-                    data: 'visit'
+                    data: 'discount'
+                },
+                {
+                    data: 'count'
+                },
+                {
+                    data: 'status'
+                },
+                {
+                    data: 'type'
                 },
                 {
                     data: 'actions'

@@ -136,4 +136,36 @@
 
 @push('scripts')
     <script type="text/javascript" src="{{ asset('js/dashboard/wizard-2.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            let params = {
+                rules: {
+                    title: {
+                        required: true,
+                    },
+                    description: {
+                        required: true
+                    },
+                    image: {
+                        required: true
+                    }
+                },
+                messages: {
+                    title: {
+                        required: 'عنوان اجباری می‌باشد!'
+                    },
+
+                    description: {
+                        required: 'توضیحات اجباری می‌باشد!'
+                    },
+
+                    image: {
+                        required: 'تصویر محصول اجباریست!'
+                    }
+                }
+            };
+            KTWizard2(params).init();
+        })
+    </script>
 @endpush
