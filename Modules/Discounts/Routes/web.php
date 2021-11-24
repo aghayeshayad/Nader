@@ -11,6 +11,13 @@
 |
 */
 
-Route::prefix('discounts')->group(function() {
-    Route::get('/', 'DiscountsController@index');
+use Illuminate\Support\Facades\Route;
+
+Route::resource('discounts', 'DiscountsController');
+
+
+Route::middleware('ajax')->prefix('discounts/')->name('discounts.ajax.')->group(function() {
+    Route::post('list', 'DiscountsController@list')->name('list');
+    Route::delete('delete/{discount}', 'DiscountsController@destroy')->name('destroy');
+    Route::post('restore/{discount}', 'DiscountsController@restore')->name('restore');
 });

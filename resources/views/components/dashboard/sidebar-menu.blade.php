@@ -4,6 +4,7 @@
             <x-sidebar-menu-item :route="'admin.settings.index'" :activeRoute="'admin.settings'" :text="'اطلاعات هدر و فوتر'" />
             <x-sidebar-menu-item :route="'admin.products.index'" :activeRoute="'admin.products'" :text="'محصولات'" />
             <x-sidebar-menu-item :route="'admin.categories.index'" :activeRoute="'admin.categories'" :text="'دسته بندی‌ها'" />
+            <x-sidebar-menu-item :route="'admin.discounts.index'" :activeRoute="'admin.discounts'" :text="'تخفیف‌ها'" />
         </ul>
     </div>
 </div>

@@ -38,7 +38,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
     }
 
-    /**
+   /**
      * Define the "web" routes for the application.
      *
      * These routes all receive session state, CSRF protection, etc.
@@ -47,9 +47,27 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
-            ->namespace($this->moduleNamespace)
-            ->group(module_path('Discounts', '/Routes/web.php'));
+        $this->mapWebRoute("Routes/web.php", "dashboard/admin", "admin", $this->moduleNamespace);
+    }
+
+    /**
+     * Define the "web" routes for the application.
+     *
+     * These routes all receive session state, CSRF protection, etc.
+     *
+     * @param $path
+     * @param $prefix
+     * @param $name
+     * @param $namespace
+     * @return void
+     */
+    protected function mapWebRoute($path, $prefix = null, $name = null, $namespace = null)
+    {
+        Route::middleware("web")
+            ->namespace($namespace ?? $this->moduleNamespace)
+            ->prefix($prefix)
+            ->name($name ? "{$name}." : "")
+            ->group(module_path('Discounts', $path));
     }
 
     /**

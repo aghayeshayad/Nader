@@ -32,7 +32,7 @@ class ProductsController extends Controller
         $categories = Category::whereNull('parent_id')->get();
         $tags = Tag::all();
 
-        return view('products::create', compact('categories', 'tags'));
+        return view('products::create', compact('categories', 'product', 'tags'));
     }
 
     /**
@@ -108,7 +108,7 @@ class ProductsController extends Controller
     {
         $categories = Category::where('parent_id', $request->id)->get();
 
-        if($request->has('productId')) {
+        if ($request->has('productId')) {
             $product = Product::find($request->productId);
         }
 
@@ -119,7 +119,7 @@ class ProductsController extends Controller
     {
         $categories = Category::where('parent_id', $request->id)->get();
 
-        if($request->has('productId')) {
+        if ($request->has('productId')) {
             $product = Product::find($request->productId);
         }
 
@@ -197,7 +197,7 @@ class ProductsController extends Controller
 
         // return Tag::whereIn('id', $request->tags ?? [])
         //         ->orWhereIn('title', $request->tags ?? [])->pluck('id')->toArray();
-
+        
         $tag = Tag::find(1);
 
         return [$tag->id => ['model_type' => ltrim(Product::class, "Modules\\")]];

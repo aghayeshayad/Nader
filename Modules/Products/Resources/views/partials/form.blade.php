@@ -19,7 +19,6 @@
 <div class="kt-wizard-v2__content" data-ktwizard-type="step-content" data-ktwizard-state="current">
     <div class="kt-form__section kt-form__section--first">
         <div class="kt-wizard-v2__form">
-
             <div class="row form-group">
                 <div class="col-lg-4 d-flex align-items-center">
                     <label for="status-switcher">وضعیت</label>
@@ -27,7 +26,7 @@
                     <span class="kt-switch kt-switch--sm ml-2">
                         <label title="وضعیت">
                             <input type="checkbox" name="status"
-                                checked="{{ old('status') || $product->status ? 'checked' : '' }}">
+                                {{ old('status') || $product->status ? 'checked' : '' }}>
                             <span></span>
                         </label>
                     </span>
@@ -38,7 +37,7 @@
                     <span class="kt-switch kt-switch--sm ml-2">
                         <label title="پرفروش">
                             <input type="checkbox" name="best_sellers"
-                                checked="{{ old('best_sellers') || $product->best_sellers ? 'checked' : '' }}">
+                                {{ old('best_sellers') || $product->best_sellers ? 'checked' : '' }}>
                             <span></span>
                         </label>
                     </span>
@@ -48,8 +47,7 @@
                     <span class="text-danger">*</span>
                     <span class="kt-switch kt-switch--sm ml-2">
                         <label title="ویژه">
-                            <input type="checkbox" name="vip"
-                                checked="{{ old('vip') || $product->vip ? 'checked' : '' }}">
+                            <input type="checkbox" name="vip" {{ old('vip') || $product->vip ? 'checked' : '' }}>
                             <span></span>
                         </label>
                     </span>
@@ -69,12 +67,12 @@
                         @foreach ($tags as $tag)
                             <option value="{{ $tag->id }}"
                                 {{ in_array(
-    $tag->id,
-    old('tags') ??
-        $product->Tags()->pluck('tag_id')->toArray(),
-)
-    ? 'selected'
-    : '' }}>
+                                    $tag->id,
+                                    old('tags') ??
+                                        $product->Tags()->pluck('tag_id')->toArray(),
+                                )
+                                    ? 'selected'
+                                    : '' }}>
                                 {{ $tag->title }}
                             </option>
                         @endforeach
@@ -172,7 +170,7 @@
                     </div>
                 </div>
                 <div data-repeater-list="informations" class="multi-images">
-                    @forelse ($product->Informations->information as $information)
+                    @forelse ($product->Informations ? $product->Informations->information : [] as $information)
                         <div data-repeater-item class="align-items-center">
                             <div class="col-lg-12 col-md-4 col-sm-12">
                                 <div class="form-group row">
@@ -248,7 +246,8 @@
                                         <select name="price[color]" style="width: 100%">
                                             @foreach (\Modules\Products\Entities\Product::COLORS as $key => $value)
                                                 <option value="{{ $key }}"
-                                                {{ ($price->color_code == $key) ? 'selected' : ''}}>{{ $value }}</option>
+                                                    {{ $price->color_code == $key ? 'selected' : '' }}>
+                                                    {{ $value }}</option>
                                             @endforeach
                                         </select>
                                     </div>

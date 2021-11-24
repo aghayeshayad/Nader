@@ -16,7 +16,7 @@ class Tag extends Model
      * 
      * @var array
      */
-    protected $fillable = ['type', 'title', 'deketed_at'];
+    protected $fillable = ['type', 'title', 'deleted_at'];
 
     /**
      * User That Deleted The Content
