@@ -10,5 +10,6 @@
     "Users": true,
     "Products": true,
     "Categories": true,
-    "Tags": true
+    "Tags": true,
+    "Discounts": true
 }
