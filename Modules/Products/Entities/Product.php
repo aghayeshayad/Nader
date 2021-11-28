@@ -76,6 +76,11 @@ class Product extends Model
         }
     }
 
+    public function getStatusTextAttribute($value)
+    {
+        return $value ? 'ناموجود' : 'موجود';
+    }
+
     /**
      * User That Deleted The Content
      *

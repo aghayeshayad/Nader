@@ -108,22 +108,30 @@ class ProductsController extends Controller
     {
         $categories = Category::where('parent_id', $request->id)->get();
 
-        if ($request->has('productId')) {
-            $product = Product::find($request->productId);
+        if (collect($categories)->isNotEmpty()) {
+            if ($request->has('productId')) {
+                $product = Product::find($request->productId);
+            }
+
+            return view('products::partials.subcategories_options', compact('categories', 'product'));
         }
 
-        return view('products::partials.subcategories_options', compact('categories', 'product'));
+        return abort(404);
     }
 
     public function getSubSubcategories(Request $request, Product $product)
     {
         $categories = Category::where('parent_id', $request->id)->get();
 
-        if ($request->has('productId')) {
-            $product = Product::find($request->productId);
+        if (collect($categories)->isNotEmpty()) {
+            if ($request->has('productId')) {
+                $product = Product::find($request->productId);
+            }
+
+            return view('products::partials.sub_subcategories_options', compact('categories', 'product'));
         }
 
-        return view('products::partials.sub_subcategories_options', compact('categories', 'product'));
+        return abort(404);
     }
 
     /**
@@ -136,6 +144,8 @@ class ProductsController extends Controller
         return DataTables::of(Product::withTrashed())
             ->addColumn('actions', function ($product) {
                 return $this->actionColumn($product);
+            })->addColumn('status', function ($product) {
+                return $product->statusText;
             })->addColumn('price', function ($product) {
                 return $this->priceColumn($product);
             })->addColumn('count', function ($product) {
@@ -183,22 +193,20 @@ class ProductsController extends Controller
 
     private function generateTags($request)
     {
-        // if ($request->has('tags')) {
-        //     foreach ($request->tags as $tag) {
-        //         Tag::firstOrCreate(
-        //             ['id' => $tag],
-        //             [
-        //                 'title' => $tag,
-        //                 'type' => ltrim(Product::class, "Modules\\")
-        //             ]
-        //         );
-        //     }
-        // }
+        if ($request->has('tags')) {
+            foreach ($request->tags as $tag) {
+                Tag::firstOrCreate(
+                    ['id' => $tag],
+                    [
+                        'title' => $tag,
+                        'type' => ltrim(Product::class, "Modules\\")
+                    ]
+                );
+            }
+        }
 
-        // return Tag::whereIn('id', $request->tags ?? [])
-        //         ->orWhereIn('title', $request->tags ?? [])->pluck('id')->toArray();
-        
-        $tag = Tag::find(1);
+        return Tag::whereIn('id', $request->tags ?? [])
+            ->orWhereIn('title', $request->tags ?? [])->pluck('id')->toArray();
 
         return [$tag->id => ['model_type' => ltrim(Product::class, "Modules\\")]];
     }
@@ -209,7 +217,7 @@ class ProductsController extends Controller
          * @var array $tags_id
          * @var \Modules\Products\Entities\Product $model
          */
-        // $model->Tags()->sync($tags_id);
+        $model->Tags()->sync($tags_id);
     }
 
     private function generateProductsInformation($information, $model)
@@ -218,8 +226,12 @@ class ProductsController extends Controller
          * @var array||null $information
          * @var \Modules\Products\Entities\Product $model
          */
-        if (!empty($information)) {
+        $productHasInformation = $model->Informations()->exists();
+
+        if (!empty($information) && !$productHasInformation) {
             $model->Informations()->create(['information' => json_encode($information)]);
+        } elseif (!empty($information) && $productHasInformation) {
+            $model->Informations()->update(['information' => json_encode($information)]);
         }
     }
 
@@ -231,7 +243,7 @@ class ProductsController extends Controller
          */
         if (!empty($prices)) {
             foreach ($prices as $price) {
-                $model->Prices()->create([
+                $model->Prices()->updateOrCreate([
                     'color_code' => $price['color'],
                     'count' => $price['count'],
                     'price' => $price['price']

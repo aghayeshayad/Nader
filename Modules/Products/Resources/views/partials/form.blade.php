@@ -247,7 +247,8 @@
                                             @foreach (\Modules\Products\Entities\Product::COLORS as $key => $value)
                                                 <option value="{{ $key }}"
                                                     {{ $price->color_code == $key ? 'selected' : '' }}>
-                                                    {{ $value }}</option>
+                                                    {{ $value }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -387,8 +388,18 @@
                             $('#sub-subcategory-selector').html(data);
                             $('#sub-subcategory-selector').parents('.d-none').removeClass(
                                 'd-none');
+                        },
+                        error: function() {
+                            $('#sub-subcategory-selector').parent().addClass(
+                                'd-none');
+                            $('#sub-subcategory-selector').children().remove();
                         }
                     });
+                },
+                error: function() {
+                    $('#subcategory-selector').parent().addClass(
+                        'd-none');
+                    $('#subcategory-selector').children().remove();
                 }
             });
 
@@ -417,8 +428,18 @@
                                 $('#sub-subcategory-selector').html(data);
                                 $('#sub-subcategory-selector').parents('.d-none')
                                     .removeClass('d-none');
+                            },
+                            error: function() {
+                                $('#sub-subcategory-selector').parent().addClass(
+                                    'd-none');
+                                $('#sub-subcategory-selector').children().remove();
                             }
                         });
+                    },
+                    error: function() {
+                        $('#subcategory-selector').parent().addClass(
+                            'd-none');
+                        $('#subcategory-selector').children().remove();
                     }
                 });
             });
@@ -435,6 +456,11 @@
                         $('#sub-subcategory-selector').html(data);
                         $('#sub-subcategory-selector').parents('.d-none')
                             .removeClass('d-none');
+                    },
+                    error: function() {
+                        $('#sub-subcategory-selector').parent().addClass(
+                            'd-none');
+                        $('#sub-subcategory-selector').children().remove();
                     }
                 });
             });
